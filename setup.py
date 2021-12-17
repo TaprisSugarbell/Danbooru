@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='booru',
+    name='danbooru',
     version='0.0.1',
     packages=['booru', 'booru.types'],
     url='https://github.com/TaprisSugarbell/Danbooru',
