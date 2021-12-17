@@ -4,6 +4,7 @@ import cloudscraper
 from typing import Any
 from .exceptions import *
 from bs4 import BeautifulSoup
+from .__vars__ import __version__
 from .types.Danbooru_API import *
 
 
@@ -202,6 +203,10 @@ class Danbooru:
         else:
             for i in iter_list:
                 yield getattr(i, _type)
+
+    @property
+    def version(self):
+        return __version__
 
 
 arm_link = Danbooru.arm_link
