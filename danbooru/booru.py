@@ -177,7 +177,6 @@ class Danbooru:
         _da = self.__session.get(self.__base + f"posts/{post_id}.json", params=self.__params).json()
         return add_to_obj(_da)
 
-    @post_info
     def searchs(self, **kwargs):
         self.__params.update(**kwargs)
         results = self.__session_requests(self.__base + "posts.json").json()

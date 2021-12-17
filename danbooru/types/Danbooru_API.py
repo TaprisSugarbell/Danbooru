@@ -393,26 +393,26 @@ class PostInfo:
         }
 
 
-def post_info(function):
-    def wrapper(
-            self,
-            tags: str = None,
-            page: int = 1,
-            limit: int = 100,
-            md5: str = None,
-            random: bool = False,
-            raw: bool = False
-    ):
-        return function(
-            self=self,
-            tags=tags,
-            page=page,
-            limit=limit,
-            md5=md5,
-            random=random,
-            raw=raw
-        )
-    return wrapper
+# def post_info(function):
+#     def wrapper(
+#             self,
+#             tags: str = None,
+#             page: int = 1,
+#             limit: int = 100,
+#             md5: str = None,
+#             random: bool = False,
+#             raw: bool = False
+#     ):
+#         return function(
+#             self=self,
+#             tags=tags,
+#             page=page,
+#             limit=limit,
+#             md5=md5,
+#             random=random,
+#             raw=raw
+#         )
+#     return wrapper
 
 
 def add_to_obj(_da: dict, obj=PostInfo):
