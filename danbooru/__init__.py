@@ -1,4 +1,4 @@
 try:
     from .booru import *
 except ImportError:
-    from booru import *
+    from danbooru import *

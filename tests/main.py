@@ -1,4 +1,5 @@
-from booru import Danbooru, PostInfo
+from danbooru import Danbooru, PostInfo
+
 
 d = Danbooru()
 # print(d.create_account())

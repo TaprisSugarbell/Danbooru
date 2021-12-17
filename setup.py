@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='danbooru',
     version='0.0.1',
-    packages=['booru', 'booru.types'],
+    packages=['danbooru', 'danbooru.types'],
     url='https://github.com/TaprisSugarbell/Danbooru',
     author='SayuOgiwara',
     author_email='anonesayu@gmail.com',
