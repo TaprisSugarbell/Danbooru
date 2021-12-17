@@ -1,9 +1,11 @@
-from setuptools import setup
+import danbooru
+from setuptools import setup, find_packages
+
 
 setup(
     name='danbooru',
-    version='0.0.1',
-    packages=['danbooru', 'danbooru.types'],
+    version=danbooru.__version__,
+    packages=find_packages(),
     url='https://github.com/TaprisSugarbell/Danbooru',
     author='SayuOgiwara',
     author_email='anonesayu@gmail.com',
