@@ -24,6 +24,18 @@ class DanbooruAPI:
         self.api_last_use = api_last_use
         self.api_created = api_created
 
+    def __str__(self):
+        return str(self.__dict__())
+
+    def __dict__(self):
+        return {
+            "api_name": self.api_name,
+            "api_key": self.api_key,
+            "api_uses": self.api_uses,
+            "api_last_use": self.api_uses,
+            "api_created": self.api_created
+        }
+
 
 class DanbooruAccount:
     def __init__(self,

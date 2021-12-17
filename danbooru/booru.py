@@ -31,7 +31,7 @@ class Danbooru:
         if username and api_key:
             self.__params = dict(login=username, api_key=api_key)
         elif username and password:
-            self.__params = {"__session[name]": username, "__session[password]": password}
+            self.__params = {"session[name]": username, "session[password]": password}
         else:
             self.__params = dict()
         self.__params.update(dict(authenticity_token=self.__authenticity_token))
