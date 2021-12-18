@@ -1,5 +1,6 @@
 import random
 import string
+import logging
 import cloudscraper
 from typing import Any
 from .exceptions import *
@@ -7,9 +8,22 @@ from bs4 import BeautifulSoup
 from .__vars__ import __version__
 from .types.Danbooru_API import *
 
+# logging.basicConfig(level=logging.WARNING,
+#                     handlers=[
+#                         logging.StreamHandler()
+#                     ])
+boorulogs = logging.getLogger("Booru")
+
 
 def random_key(lenght=5, _string=string.hexdigits):
     return "".join(random.choice(_string) for _ in range(lenght))
+
+
+def add_to_obj(_da: dict, obj: Any = PostInfo):
+    if "id" in _da.keys():
+        _da["_id"] = _da["id"]
+        _da.pop("id")
+    return obj(**_da)
 
 
 class Danbooru:
@@ -181,7 +195,12 @@ class Danbooru:
         self.__params.update(**kwargs)
         results = self.__session_requests(self.__base + "posts.json").json()
         if isinstance(results, dict):
-            __r = [add_to_obj(results)]
+            try:
+                __r = [add_to_obj(results)]
+            except TypeError:
+                boorulogs.error("probably limit tags error")
+                _da = add_to_obj(results, DEB)
+                raise DanbooruLimitError(_da.message)
             return __r
         else:
             __r = [add_to_obj(i) for i in results]

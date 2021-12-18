@@ -31,6 +31,15 @@ class DanbooruAccessDenied(DanbooruErrors):
         return self._msg
 
 
+class DanbooruLimitError(DanbooruErrors):
+    def __init__(self, msg):
+        super(DanbooruLimitError, self).__init__(msg)
+        self._msg = msg
+
+    def __str__(self):
+        return self._msg
+
+
 class DanbooruUnknownError(DanbooruErrors):
     pass
 

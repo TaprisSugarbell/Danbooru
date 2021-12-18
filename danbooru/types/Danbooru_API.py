@@ -37,6 +37,27 @@ class DanbooruAPI:
         }
 
 
+class DEB:
+    def __init__(self,
+                 success: bool = None,
+                 message: str = None,
+                 backtrace: list = None
+                 ):
+        self.success = success
+        self.message = message
+        self.backtrace = backtrace
+
+    def __str__(self):
+        return str(self.__dict__())
+
+    def __dict__(self):
+        return {
+            "success": self.success,
+            "message": self.message,
+            "backtrace": self.backtrace
+        }
+
+
 class DanbooruAccount:
     def __init__(self,
                  _id: int = None,
@@ -427,9 +448,5 @@ class PostInfo:
 #     return wrapper
 
 
-def add_to_obj(_da: dict, obj=PostInfo):
-    if "id" in _da.keys():
-        _da["_id"] = _da["id"]
-        _da.pop("id")
-    return obj(**_da)
+
 
