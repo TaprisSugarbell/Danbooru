@@ -28,7 +28,8 @@ def add_to_obj(_da: dict, obj: Any = PostInfo):
 
 class Danbooru:
     def __init__(self, username=None, api_key=None, password=None, host="Danbooru"):
-        self.__base = f"https://{host.lower()}.donmai.us/"
+        self.__host = host.lower()
+        self.__base = f"https://{self.__host}.donmai.us/"
         self.__sess = cloudscraper.Session()
         self.__session = cloudscraper.create_scraper(
             browser={
@@ -225,6 +226,14 @@ class Danbooru:
     @property
     def version(self):
         return __version__
+
+    @property
+    def host(self):
+        return self.__host
+
+    @property
+    def site(self):
+        return self.__base
 
 
 arm_link = Danbooru.arm_link
