@@ -7,6 +7,7 @@ from .exceptions import *
 from bs4 import BeautifulSoup
 from .__vars__ import __version__
 from .types.Danbooru_API import *
+from .types.Danbooru_Types import *
 
 # logging.basicConfig(level=logging.WARNING,
 #                     handlers=[
@@ -19,11 +20,20 @@ def random_key(lenght=5, _string=string.hexdigits):
     return "".join(random.choice(_string) for _ in range(lenght))
 
 
-def add_to_obj(_da: dict, obj: Any = PostInfo):
-    if "id" in _da.keys():
-        _da["_id"] = _da["id"]
-        _da.pop("id")
-    return obj(**_da)
+def add_to_obj(_da: dict or list, obj: Any = PostInfo):
+    if isinstance(_da, list):
+        _rsts = []
+        for i in _da:
+            _rsts.append(add_to_obj(i, obj))
+        return _rsts
+    else:
+        if "id" in _da.keys():
+            _da["_id"] = _da["id"]
+            _da.pop("id")
+        elif "type" in _da.keys():
+            _da["_type"] = _da["type"]
+            _da.pop("type")
+        return obj(**_da)
 
 
 class Danbooru:
@@ -163,6 +173,46 @@ class Danbooru:
         _created = _get_api.find("td", class_="created-column").find("time").string.strip()
         return DanbooruAPI(*(_api_name, _api_key, _uses, _last_use, _created))
 
+    def autocomplete(self,
+                     query: str = None,
+                     _type: str = "tag_query",
+                     limit: int = None
+                     ) -> list[Autocomplete]:
+        _ad = {
+            "search[query]": query,
+            "search[type]": _type,
+            "limit": limit
+        }
+        self.__params.update(_ad)
+        _da = self.__session_requests(
+            self.__base + "autocomplete.json"
+        ).json()
+        return add_to_obj(_da, Autocomplete)
+
+    def tags(self,
+             name_or_alias_matches: str = None,
+             category: Category = None,
+             order: str = "date",
+             page: int = None,
+             limit: int = None,
+             hide_empty: str = "yes",
+             commit="Search") -> list[Tag]:
+        self.__params.update(
+            {
+                "search[name_or_alias_matches]": name_or_alias_matches,
+                "search[order]": order,
+                "page": page,
+                "limit": limit,
+                "search[category]": category,
+                "search[hide_empty]": hide_empty,
+                "commit": commit
+            }
+        )
+        _da = self.__session_requests(
+            self.__base + "tags.json"
+        ).json()
+        return add_to_obj(_da, Tag)
+
     def favorites(self):
         _login = self.login()
         self.__params.update(dict(user_id=_login.id))
@@ -184,15 +234,15 @@ class Danbooru:
         self.__session.delete(self.__base + f'favorites/{post_id}.json', params=self.__params)
         return True
 
-    def post_random(self, **kwargs):
+    def post_random(self, **kwargs) -> PostInfo:
         self.__set_params(**kwargs)
         return add_to_obj(self.__session_requests(self.__base + 'posts/random.json').json())
 
-    def post(self, post_id: int):
+    def post(self, post_id: int) -> PostInfo:
         _da = self.__session.get(self.__base + f"posts/{post_id}.json", params=self.__params).json()
         return add_to_obj(_da)
 
-    def searchs(self, **kwargs):
+    def searchs(self, **kwargs) -> list[PostInfo]:
         self.__params.update(**kwargs)
         results = self.__session_requests(self.__base + "posts.json").json()
         if isinstance(results, dict):
