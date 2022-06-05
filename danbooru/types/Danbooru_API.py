@@ -84,33 +84,34 @@ class DanbooruAccount:
                  can_approve_posts: bool = None,
                  can_upload_free: bool = None,
                  level_string: str = None,
-                 has_mail: bool = None,
+                 _unused_has_mail: bool = None,
                  receive_email_notifications: bool = None,
-                 always_resize_images: bool = None,
-                 enable_post_navigation: bool = None,
+                 _unused_always_resize_images: bool = None,
+                 _unused_enable_post_navigation: bool = None,
                  new_post_navigation_layout: bool = None,
                  enable_private_favorites: bool = None,
-                 enable_sequential_post_navigation: bool = None,
-                 hide_deleted_posts: bool = None,
+                 _unused_enable_sequential_post_navigation: bool = None,
+                 _unused_hide_deleted_posts: bool = None,
                  style_usernames: bool = None,
-                 enable_auto_complete: bool = None,
+                 _unused_enable_auto_complete: bool = None,
                  show_deleted_children: bool = None,
-                 has_saved_searches: bool = None,
+                 _unused_has_saved_searches: bool = None,
                  disable_categorized_saved_searches: bool = None,
-                 is_super_voter: bool = None,
+                 _unused_is_super_voter: bool = None,
                  disable_tagged_filenames: bool = None,
-                 enable_recent_searches: bool = None,
-                 disable_cropped_thumbnails: bool = None,
+                 _unused_enable_recent_searches: bool = None,
+                 _unused_disable_cropped_thumbnails: bool = None,
                  disable_mobile_gestures: bool = None,
                  enable_safe_mode: bool = None,
                  enable_desktop_mode: bool = None,
                  disable_post_tooltips: bool = None,
-                 enable_recommended_posts: bool = None,
-                 opt_out_tracking: bool = None,
-                 no_flagging: bool = None,
-                 no_feedback: bool = None,
+                 _unused_enable_recommended_posts: bool = None,
+                 _unused_opt_out_tracking: bool = None,
+                 _unused_no_flagging: bool = None,
+                 _unused_no_feedback: bool = None,
                  requires_verification: bool = None,
                  is_verified: bool = None,
+                 show_deleted_posts: bool = None,
                  statement_timeout: int = None,
                  favorite_group_limit: int = None,
                  tag_query_limit: int = None,
@@ -152,33 +153,34 @@ class DanbooruAccount:
         self.can_approve_posts = can_approve_posts
         self.can_upload_free = can_upload_free
         self.level_string = level_string
-        self.has_mail = has_mail
+        self._unused_has_mail = _unused_has_mail
         self.receive_email_notifications = receive_email_notifications
-        self.always_resize_images = always_resize_images
-        self.enable_post_navigation = enable_post_navigation
+        self._unused_always_resize_images = _unused_always_resize_images
+        self._unused_enable_post_navigation = _unused_enable_post_navigation
         self.new_post_navigation_layout = new_post_navigation_layout
         self.enable_private_favorites = enable_private_favorites
-        self.enable_sequential_post_navigation = enable_sequential_post_navigation
-        self.hide_deleted_posts = hide_deleted_posts
+        self._unused_enable_sequential_post_navigation = _unused_enable_sequential_post_navigation
+        self._unused_hide_deleted_posts = _unused_hide_deleted_posts
         self.style_usernames = style_usernames
-        self.enable_auto_complete = enable_auto_complete
+        self._unused_enable_auto_complete = _unused_enable_auto_complete
         self.show_deleted_children = show_deleted_children
-        self.has_saved_searches = has_saved_searches
+        self._unused_has_saved_searches = _unused_has_saved_searches
         self.disable_categorized_saved_searches = disable_categorized_saved_searches
-        self.is_super_voter = is_super_voter
+        self._unused_is_super_voter = _unused_is_super_voter
         self.disable_tagged_filenames = disable_tagged_filenames
-        self.enable_recent_searches = enable_recent_searches
-        self.disable_cropped_thumbnails = disable_cropped_thumbnails
+        self._unused_enable_recent_searches = _unused_enable_recent_searches
+        self._unused_disable_cropped_thumbnails = _unused_disable_cropped_thumbnails
         self.disable_mobile_gestures = disable_mobile_gestures
         self.enable_safe_mode = enable_safe_mode
         self.enable_desktop_mode = enable_desktop_mode
         self.disable_post_tooltips = disable_post_tooltips
-        self.enable_recommended_posts = enable_recommended_posts
-        self.opt_out_tracking = opt_out_tracking
-        self.no_flagging = no_flagging
-        self.no_feedback = no_feedback
+        self._unused_enable_recommended_posts = _unused_enable_recommended_posts
+        self._unused_opt_out_tracking = _unused_opt_out_tracking
+        self._unused_no_flagging = _unused_no_flagging
+        self._unused_no_feedback = _unused_no_feedback
         self.requires_verification = requires_verification
         self.is_verified = is_verified
+        self.show_deleted_posts = show_deleted_posts
         self.statement_timeout = statement_timeout
         self.favorite_group_limit = favorite_group_limit
         self.tag_query_limit = tag_query_limit
@@ -225,33 +227,34 @@ class DanbooruAccount:
             "can_approve_posts": self.can_approve_posts,
             "can_upload_free": self.can_upload_free,
             "level_string": self.level_string,
-            "has_mail": self.has_mail,
+            "_unused_has_mail": self._unused_has_mail,
             "receive_email_notifications": self.receive_email_notifications,
-            "always_resize_images": self.always_resize_images,
-            "enable_post_navigation": self.enable_post_navigation,
+            "_unused_always_resize_images": self._unused_always_resize_images,
+            "_unused_enable_post_navigation": self._unused_enable_post_navigation,
             "new_post_navigation_layout": self.new_post_navigation_layout,
             "enable_private_favorites": self.enable_private_favorites,
-            "enable_sequential_post_navigation": self.enable_sequential_post_navigation,
-            "hide_deleted_posts": self.hide_deleted_posts,
+            "_unused_enable_sequential_post_navigation": self._unused_enable_sequential_post_navigation,
+            "_unused_hide_deleted_posts": self._unused_hide_deleted_posts,
             "style_usernames": self.style_usernames,
-            "enable_auto_complete": self.enable_auto_complete,
+            "_unused_enable_auto_complete": self._unused_enable_auto_complete,
             "show_deleted_children": self.show_deleted_children,
-            "has_saved_searches": self.has_saved_searches,
+            "_unused_has_saved_searches": self._unused_has_saved_searches,
             "disable_categorized_saved_searches": self.disable_categorized_saved_searches,
-            "is_super_voter": self.is_super_voter,
+            "_unused_is_super_voter": self._unused_is_super_voter,
             "disable_tagged_filenames": self.disable_tagged_filenames,
-            "enable_recent_searches": self.enable_recent_searches,
-            "disable_cropped_thumbnails": self.disable_cropped_thumbnails,
+            "_unused_enable_recent_searches": self._unused_enable_recent_searches,
+            "_unused_disable_cropped_thumbnails": self._unused_disable_cropped_thumbnails,
             "disable_mobile_gestures": self.disable_mobile_gestures,
             "enable_safe_mode": self.enable_safe_mode,
             "enable_desktop_mode": self.enable_desktop_mode,
             "disable_post_tooltips": self.disable_post_tooltips,
-            "enable_recommended_posts": self.enable_recommended_posts,
-            "opt_out_tracking": self.opt_out_tracking,
-            "no_flagging": self.no_flagging,
-            "no_feedback": self.no_feedback,
+            "_unused_enable_recommended_posts": self._unused_enable_recommended_posts,
+            "_unused_opt_out_tracking": self._unused_opt_out_tracking,
+            "_unused_no_flagging": self._unused_no_flagging,
+            "_unused_no_feedback": self._unused_no_feedback,
             "requires_verification": self.requires_verification,
             "is_verified": self.is_verified,
+            "show_deleted_posts": self.show_deleted_posts,
             "statement_timeout": self.statement_timeout,
             "favorite_group_limit": self.favorite_group_limit,
             "tag_query_limit": self.tag_query_limit,

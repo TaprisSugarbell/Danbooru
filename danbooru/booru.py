@@ -238,8 +238,18 @@ class Danbooru:
         self.__set_params(**kwargs)
         return add_to_obj(self.__session_requests(self.__base + 'posts/random.json').json())
 
-    def post(self, post_id: int) -> PostInfo:
-        _da = self.__session.get(self.__base + f"posts/{post_id}.json", params=self.__params).json()
+    def post(self, post_id: int, **kwargs) -> PostInfo:
+        self.__set_params(**kwargs)
+        _da = self.__session_requests(self.__base + f"posts/{post_id}.json").json()
+        return add_to_obj(_da)
+
+    def show_seq(self, post_id: int, **kwargs) -> PostInfo:
+        self.__set_params(**kwargs)
+        _da1 = self.__session_requests(self.__base + f"posts/{post_id}/show_seq")
+        _da_split = _da1.url.split("/")[-1]
+        # pst_id, _tags = (_ for _ in _da_split.split("?q="))
+        pst_id = _da_split.split("?q=")[0]
+        _da = self.__session_requests(self.__base + f'posts/{pst_id}.json').json()
         return add_to_obj(_da)
 
     def searchs(self, **kwargs) -> list[PostInfo]:
@@ -258,7 +268,7 @@ class Danbooru:
             return __r
 
     @staticmethod
-    def arm_link(search_json: dict, _type="file_url", abso: tuple = None):
+    def arm_link(search_json: PostInfo, _type="file_url", abso: tuple = None):
         if isinstance(abso, tuple):
             return search_json, getattr(search_json, _type)
         else:
