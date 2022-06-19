@@ -40,7 +40,8 @@ class Tag:
                  category: int = None,
                  created_at: str = None,
                  updated_at: str = None,
-                 is_locked: bool = None
+                 is_locked: bool = None,
+                 is_deprecated: bool = None
                  ):
         self.id = _id
         self.name = name
@@ -49,6 +50,7 @@ class Tag:
         self.created_at = created_at
         self.updated_at = updated_at
         self.is_locked = is_locked
+        self.is_deprecated = is_deprecated
 
     def __str__(self):
         return str(self.__dict__())
