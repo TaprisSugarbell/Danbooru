@@ -3,7 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/danbooru)](https://pypi.python.org/pypi/danbooru)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/LuqueDaniel/pybooru/master/LICENSE)
 
-- Version: **0.0.7**
+- Version: **0.0.9**
 - License under: **MIT License**
 
 ## Dependencies

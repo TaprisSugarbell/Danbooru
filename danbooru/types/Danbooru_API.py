@@ -82,6 +82,7 @@ class DanbooruAccount:
                  per_page: int = None,
                  custom_style: str = None,
                  theme: str = None,
+                 is_deleted: bool = None,
                  is_banned: bool = None,
                  can_approve_posts: bool = None,
                  can_upload_free: bool = None,
