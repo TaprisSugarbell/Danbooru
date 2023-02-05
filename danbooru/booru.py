@@ -33,6 +33,7 @@ def add_to_obj(_da: dict or list, obj: Any = PostInfo):
         elif "type" in _da.keys():
             _da["_type"] = _da["type"]
             _da.pop("type")
+        print(_da)
         return obj(**_da)
 
 

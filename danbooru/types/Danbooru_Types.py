@@ -41,10 +41,12 @@ class Tag:
                  created_at: str = None,
                  updated_at: str = None,
                  is_locked: bool = None,
+                 words: list[str] = None,
                  is_deprecated: bool = None
                  ):
         self.id = _id
         self.name = name
+        self.words = words
         self.post_count = post_count
         self.category = category
         self.created_at = created_at
@@ -63,6 +65,7 @@ class Tag:
             "category": self.category,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
+            "words": self.words,
             "is_locked": self.is_locked
         }
 

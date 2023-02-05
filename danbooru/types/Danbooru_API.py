@@ -40,10 +40,12 @@ class DanbooruAPI:
 class DEB:
     def __init__(self,
                  success: bool = None,
+                 error: str = None,
                  message: str = None,
                  backtrace: list = None
                  ):
         self.success = success
+        self.error = error
         self.message = message
         self.backtrace = backtrace
 
