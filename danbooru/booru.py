@@ -23,18 +23,14 @@ def random_key(lenght=5, _string=string.hexdigits):
 
 def add_to_obj(_da: dict or list, obj: Any = PostInfo):
     if isinstance(_da, list):
-        _rsts = []
-        for i in _da:
-            _rsts.append(add_to_obj(i, obj))
-        return _rsts
-    else:
-        if "id" in _da.keys():
-            _da["_id"] = _da["id"]
-            _da.pop("id")
-        elif "type" in _da.keys():
-            _da["_type"] = _da["type"]
-            _da.pop("type")
-        return obj(**_da)
+        return [add_to_obj(i, obj) for i in _da]
+    if "id" in _da.keys():
+        _da["_id"] = _da["id"]
+        _da.pop("id")
+    elif "type" in _da.keys():
+        _da["_type"] = _da["type"]
+        _da.pop("type")
+    return obj(**_da)
 
 
 class Danbooru:

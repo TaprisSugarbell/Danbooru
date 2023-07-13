@@ -319,6 +319,7 @@ class PostInfo:
                  tag_count_meta: int = None,
                  has_large: bool = None,
                  has_visible_children: bool = None,
+                 media_asset: dict = None,
                  tag_string_general: str = None,
                  tag_string_character: str = None,
                  tag_string_copyright: str = None,
